@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <title>PigLatin</title>
 </head>
 <body>
@@ -12,11 +18,21 @@
         <img src="assets/images/pig.png" alt="pigImage">
         <h2>PigLatin Translator</h2>
     </header>
+    <main>
+    <h3>To PigLatin</h3>
     <form action="javascript:;">
         <textarea name="submit" id="enviar" cols="30" rows="10"></textarea>
-        <button type="submit" onclick ="integratedJs()">Enviar</button>
-        <pre id="result"></pre>
+        <button type="submit" onclick ="integratedJs()">Traduzir</button>
     </form>
+    <h3>To English</h3>
+    <form action="javascript:;">
+        <textarea name="submit" id="enviarTradutor" cols="30" rows="10"></textarea>
+        <button type="submit" onclick ="integratedJsTranslate()">Traduzir</button>
+    </form> 
+    </main>
+    <footer>
+        <p><a href="https://github.com/marcos-vinicius-mafei">@MarcosMafei </a> All rights reserved.</p>
+    </footer>
     <script src="englishToPigLatin.js"></script>
 </body>
 </html>
