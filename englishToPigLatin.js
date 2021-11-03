@@ -69,12 +69,18 @@ function encodeConsonantWord(word) {
       if(separar[i].includes(',')){
         separar[i] = separar[i].replace(',','')
         separar[i] = encodeWord(separar[i]) + ','
+      }else if(separar[i].includes('.')){
+          separar[i] = separar[i].replace('.','')
+          separar[i] = encodeWord(separar[i]) + '.'
+      }else if(separar[i].includes('?')){
+          separar[i] = separar[i].replace('?','')
+          separar[i] = encodeWord(separar[i]) + '?'
       }else{
         separar[i] = encodeWord(separar[i])
       }
     }
     result = separar.join(' ')
-    return result
+    return result; // replace this!
   }
   
   /*
