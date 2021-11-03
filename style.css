@@ -8,6 +8,10 @@ header {
     justify-content: space-around;
     align-items: center;
 }
+header h2{
+    font-family: 'Henny Penny', cursive;
+    font-size: 24px;
+}
 header img{
     height: 50%;
     width: 100px;
@@ -27,4 +31,35 @@ form {
 form textarea {
     width: 100%;
     background-color: #F5ADBB;
+}
+form button {
+    width: 100px;
+    height: 30px;
+    background-color: #C23753;
+    border: 2px solid transparent;
+    -webkit-transition: border 0.5s 0s ease-out;
+    -moz-transition: border 0.5s 0s ease-out;
+    -o-transition: border 0.5s 0s ease-out;
+    transition: border 0.5s 0s ease-out;
+}
+form button:hover{
+    border: 2px solid #F5ADBB;
+    -webkit-transition: border 0.5s 0s ease-out;
+    -moz-transition: border 0.5s 0s ease-out;
+    -o-transition: border 0.5s 0s ease-out;
+    transition: border 0.5s 0s ease-out;
+    cursor: pointer;
+}
+main h3{
+    text-align: center;
+    margin-top: 100px;
+    font-family: 'Permanent Marker', cursive;
+}
+footer p{
+    margin-top: 100px;
+    text-align: right;
+}
+footer p a{
+    text-decoration: none;
+    color: #C23753;
 }

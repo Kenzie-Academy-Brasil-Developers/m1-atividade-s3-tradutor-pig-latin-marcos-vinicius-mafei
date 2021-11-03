@@ -82,9 +82,13 @@ function encodeConsonantWord(word) {
       and get it encoded into pig latin.
   */
     function integratedJs(){
-    let translate = document.getElementById("enviar").value
-    let result = encodeText(translate)
-    document.getElementById("enviar").value = result
+      let translate = document.getElementById("enviar").value
+      if(translate === ''){
+        document.getElementById("enviar").value = translate
+      }else{
+        let result = encodeText(translate)
+        document.getElementById("enviar").value = result
+      }
     }
   /*  
       STEP # 6: Decode pig latin words into words that begin with a vowel sound. 
@@ -95,7 +99,11 @@ function encodeConsonantWord(word) {
           "omeletyay" becomes "omelet" 
   */
   function decodeVowelWord(word) {
-    return ''; // replace this!
+    let result = ''
+    if(word.includes('yay')){
+      result = word.replace('yay','')
+    }
+    return result; // replace this!
   }
   
   /*  
@@ -107,7 +115,17 @@ function encodeConsonantWord(word) {
           "eers-chay" becomes "cheers"
   */
   function decodeConsonantWord(word) {
-    return ''; // replace this!
+    let result = ''
+    let final = ''
+    if(word.includes('-')){
+      let array = word.split('')
+      let traço = array.indexOf('-')
+      result = array.splice(traço+1)
+      final = result.concat(array)
+      final = final.join('')
+      final = final.replace('-', '').replace('ay','')
+    }
+    return final; // replace this!
   }
   
   /*  
@@ -123,21 +141,52 @@ function encodeConsonantWord(word) {
           "ou-yay" becomes "you" because it ends with a hyphen, a consonant sound, and an "ay"
   */
   function decodeWord(word) {
-    return ''; // replace this!
+    let translate = ''
+    if(word.includes('-')){
+      translate = decodeConsonantWord(word)
+    }else{
+      translate = decodeVowelWord(word)
+    }
+    return translate; // replace this!
   }
   
   /*
       STEP # 9: Decode a full sentence or paragraph pig latin to english.
   */
   function decodeText(text) {
-    return ''; // replace this!
+    let separar = text.split(' ')
+    let result = ''
+    for(let i = 0 ; i < separar.length ; i++){
+      if(separar[i].includes(',')){
+        separar[i] = separar[i].replace(',','')
+        separar[i] = decodeWord(separar[i]) + ','
+      }else if(separar[i].includes('.')){
+          separar[i] = separar[i].replace('.','')
+          separar[i] = decodeWord(separar[i]) + '.'
+      }else if(separar[i].includes('?')){
+          separar[i] = separar[i].replace('?','')
+          separar[i] = decodeWord(separar[i]) + '?'
+      }else{
+        separar[i] = decodeWord(separar[i])
+      }
+    }
+    result = separar.join(' ')
+    return result; // replace this!
   }
   
   /*
       STEP # 10: Create a web form where users can input any message in pig latin and get it 
       decoded into plain english.
   */
-  
+      function integratedJsTranslate(){
+        let translate = document.getElementById("enviarTradutor").value
+        if(translate === ''){
+          document.getElementById("enviarTradutor").value = translate
+        }else{
+          let result = decodeText(translate)
+          document.getElementById("enviarTradutor").value = result
+        }
+      }
   /*
       BONUS: Go back to encodeText and decodeText and modify it so it can gracefully handle punctuation 
       such as '.', ',', '?'
